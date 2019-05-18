@@ -6,6 +6,7 @@ abstract class EntryTokenParser extends \Twig_TokenParser
 {
     protected $manifestFile;
     protected $publicPath;
+    protected $useAsyncAttribute;
 
     abstract protected function type();
 
