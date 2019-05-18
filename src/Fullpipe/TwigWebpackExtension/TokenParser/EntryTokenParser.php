@@ -12,10 +12,11 @@ abstract class EntryTokenParser extends \Twig_TokenParser
 
     abstract protected function generateHtml($entryPath);
 
-    public function __construct($manifestFile, $publicPath)
+    public function __construct($manifestFile, $publicPath, $useAsyncAttribute = false)
     {
         $this->manifestFile = $manifestFile;
         $this->publicPath = $publicPath;
+        $this->useAsyncAttribute = $useAsyncAttribute;
     }
 
     public function parse(\Twig_Token $token)
