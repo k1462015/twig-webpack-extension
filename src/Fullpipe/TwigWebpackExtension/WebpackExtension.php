@@ -10,16 +10,16 @@ class WebpackExtension extends \Twig_Extension
     protected $manifestFile;
     protected $publicPathJs;
     protected $publicPathCss;
-    protected $useAsyncAttributeForJsFile;
-    protected $useAsyncAttributeForCssFile;
+    protected $useDeferAttributeForJsFile;
+    protected $useDeferAttributeForCssFile;
 
-    public function __construct($manifestFile, $publicPathJs = '/js/', $publicPathCss = '/css/', $useAsyncAttributeForJsFile = false, $useAsyncAttributeForCssFile = false)
+    public function __construct($manifestFile, $publicPathJs = '/js/', $publicPathCss = '/css/', $useDeferAttributeForJsFile = false, $useDeferAttributeForCssFile = false)
     {
         $this->manifestFile = $manifestFile;
         $this->publicPathJs = $publicPathJs;
         $this->publicPathCss = $publicPathCss;
-        $this->useAsyncAttributeForJsFile = $useAsyncAttributeForJsFile;
-        $this->useAsyncAttributeForCssFile = $useAsyncAttributeForCssFile;
+        $this->useDeferAttributeForJsFile = $useDeferAttributeForJsFile;
+        $this->useDeferAttributeForCssFile = $useDeferAttributeForCssFile;
     }
 
     public function getName()
@@ -30,8 +30,8 @@ class WebpackExtension extends \Twig_Extension
     public function getTokenParsers()
     {
         return [
-            new EntryTokenParserJs($this->manifestFile, $this->publicPathJs, $this->useAsyncAttributeForJsFile),
-            new EntryTokenParserCss($this->manifestFile, $this->publicPathCss, $this->useAsyncAttributeForCssFile),
+            new EntryTokenParserJs($this->manifestFile, $this->publicPathJs, $this->useDeferAttributeForJsFile),
+            new EntryTokenParserCss($this->manifestFile, $this->publicPathCss, $this->useDeferAttributeForCssFile),
         ];
     }
 }
